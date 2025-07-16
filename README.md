@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Project Build Status
 
-## Getting Started
+## Current Issues
 
-First, run the development server:
+- Local build works, but deployment on Vercel still fails
+  - After removing the slug component, `npm run build` now works without errors locally
+  - However, deployment still fails on Vercel even without the slug implementation
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Unimplemented Features
+  - Blog and post creation already hits the API successfully
+  - Role-based access control not yet implemented, so created posts are not visible on the homepage
+  - Protected routes have not been implemented
+  - Login and Register functionality are still missing
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- API Status
+  - API is still connected to a local environment
+  - Backend uses Supabase
+  - The API is not yet deployed to a production environment
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Temporary Workarounds
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Blog post viewing uses a dialog component instead of dynamic slug routing
+- Blog creation works with the local API
 
-## Learn More
+## To-Do (Short Term)
 
-To learn more about Next.js, take a look at the following resources:
+- [ ] Investigate and fix Vercel deployment failure (possible config/env mismatch)
+- [ ] Implement login and register functionality
+- [ ] Set up protected routes for dashboard and blog creation
+- [ ] Reimplement slug-based routing for blog detail pages
+- [ ] Deploy API to a production service (e.g., Supabase Edge Functions, Railway, Render)
+- [ ] Connect frontend to deployed API
+- [ ] Implement role-based blog visibility on homepage
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Stack
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Frontend: Next.js (TypeScript)
+- Backend: Supabase (local, pending deployment)
+- State Management: Zustand
+- Auth: (planned) JWT or Supabase Auth
 
-## Deploy on Vercel
+## Build Notes
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `npm run build` passes locally after removing slug
+- Vercel deployment fails even after slug removal — check build logs and environment config
+- Run `npm run lint` before pushing to catch type or syntax issues
+- Test components in development mode before pushing to remote
+- Avoid relying on unstable or incomplete features in server-side rendered pages
