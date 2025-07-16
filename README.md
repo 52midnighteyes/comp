@@ -1,5 +1,7 @@
 # <<<<< Build Status >>>>>>>
 
+API: https://github.com/52midnighteyes/company-api
+
 After I removed the slug, `npm run build` works locally.  
 But deployment on Vercel still fails.
 
