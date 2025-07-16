@@ -1,25 +1,55 @@
+"use client";
+
 import Video from "next-video";
 import bcsProfile from "/videos/profile-bcs.mp4";
-import bgBcs from "/public/bg-saul.jpg";
 
 export default function HeroSection() {
   return (
-    <section className="h-[700px] bg-[<bgBcs>] min-w-screen flex justify-center items-center gap-10">
-      <div className=" bg-blue-700 flex flex-col items-center justify-center h-[700px] w-[600px]">
-        <div className="flex font-bold text-left text-2xl">
-          better call saul law firm
+    <section className="relative min-h-[800px] w-full px-6 py-24 bg-[url('/bg-saul.jpg')] bg-cover bg-center text-white flex justify-center">
+      <div className="absolute inset-0 bg-black/60 backdrop-blur-sm z-0" />
+
+      <div className="relative z-10 flex flex-col-reverse lg:flex-row items-center gap-12 max-w-6xl w-full">
+        <div className="w-full lg:w-1/2 order-2 lg:order-1 flex flex-col gap-6 backdrop-blur-md rounded-xl p-6 md:p-10">
+          <h1 className="text-4xl md:text-5xl font-extrabold text-[#FFD700] leading-tight text-left">
+            Saul Goodman, Attorney at Law
+          </h1>
+
+          <p className="text-base md:text-lg text-white/90 leading-relaxed text-justify">
+            In trouble? Let’s be honest —{" "}
+            <span className="font-semibold text-[#FFD700]">
+              you don’t need justice, you need a win.
+            </span>{" "}
+            Saul Goodman brings legal firepower with street smarts, delivering
+            fast, strategic defense no matter how messy things look.
+          </p>
+
+          <p className="text-base md:text-lg text-white/90 leading-relaxed text-justify">
+            Whether you're facing charges, lawsuits, or something that
+            requires... discretion —{" "}
+            <span className="font-semibold text-[#FFD700]">
+              I get results where others fold.
+            </span>
+          </p>
+
+          <p className="text-base md:text-lg font-semibold text-[#FFD700] text-justify">
+            Better Call Saul —{" "}
+            <span className="text-white italic">
+              because losing is for amateurs.
+            </span>
+          </p>
         </div>
-        <div className="flex text-justify">
-          Better Call Saul Law Firm is a boutique legal practice led by James
-          "Saul" Goodman, a street-smart lawyer known for his bold courtroom
-          tactics and creative legal solutions. Based in Albuquerque, New
-          Mexico, we serve clients across a wide spectrum of legal needs — with
-          a particular focus on criminal defense, civil litigation, and "problem
-          solving" in legally gray areas.
+
+        <div className="w-full lg:w-1/2 order-1 lg:order-2 flex justify-center">
+          <div className="aspect-video w-full max-w-[640px] rounded-xl overflow-hidden border border-white/20">
+            <Video
+              src={bcsProfile}
+              autoPlay
+              loop
+              playsInline
+              className="w-full h-full object-cover"
+            />
+          </div>
         </div>
-      </div>
-      <div className=" bg-red-700 flex items-center h-[700px] w-auto">
-        <Video width={400} src={bcsProfile} />
       </div>
     </section>
   );
