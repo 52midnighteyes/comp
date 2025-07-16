@@ -1,4 +1,4 @@
-# <<<<<Build Status>>>>>>>
+# <<<<< Build Status >>>>>>>
 
 After I removed the slug, `npm run build` works locally.  
 But deployment on Vercel still fails.
